@@ -32,11 +32,11 @@ cbuffer ModelCb : register(b0)
 // ディレクションライト用のデータを受け取るための定数バッファーを用意する
 cbuffer DirectionLightCb : register(b1)
 {
-	float3 ligDirection;    // ライトの方向
-	float3 ligColor;        // ライトのカラー
+	float3 ligDirection;    //ライトの方向
+	float3 ligColor;        //ライトのカラー
 
 	// step-3 視点のデータにアクセスするための変数を定数バッファーに追加する
-	float3 eyePos;  // 視点の位置
+	float3 eyePos;          //視点の位置
 };
 
 ///////////////////////////////////////////
@@ -92,7 +92,7 @@ float4 PSMain(SPSIn psIn) : SV_Target0
 
 	// step-5 光が当たったサーフェイスから視点に伸びるベクトルを求める
 	float3 toEye = eyePos - psIn.worldPos;
-	toEye = nomalize(toEye);
+	toEye = normalize(toEye);
 
 	// step-6 鏡面反射の強さを求める
 	t = dot(refVec, toEye);
