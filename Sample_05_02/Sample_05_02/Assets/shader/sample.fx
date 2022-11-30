@@ -42,6 +42,11 @@ cbuffer DirectionLightCb : register(b1)
     float ptRange;          // ポイントライトの影響範囲
 
     // step-5 スポットライトのデータにアクセスするための変数を追加する
+    float3 spPosition;      // スポットライトの位置
+    float3 spColor;         // スポットライトのカラー
+    float spRange;          // スポットライトの射出範囲
+    float3 spDirection;     // スポットライトの射出方向
+    float spAngle;          // スポットライトの射出角度
 
     float3 eyePos;          // 視点の位置
     float3 ambientLight;    // アンビエントライト

@@ -1,3 +1,5 @@
+#pragma enable_d3d11_debug_symbols
+
 // 頂点シェーダーへの入力頂点構造体
 struct VSInput
 {
