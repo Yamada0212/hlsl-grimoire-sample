@@ -41,7 +41,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     light.color.y = 0.6f;
     light.color.z = 0.6f;
 
-    light.direction.x = 1.0f;
+    light.direction.x = 0.75f;
     light.direction.y = -1.0f;
     light.direction.z = -1.0f;
 
