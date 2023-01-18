@@ -42,6 +42,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
         { -0.5f, -0.5f, 0.0f },
         { 0.0f, 0.5f, 0.0f },
         { 0.5f, -0.5f, 0.0f },
+        { 0.0f, -0.9f, 0.0f },
     };
 
     VertexBuffer triangleVB;
@@ -51,7 +52,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     // 5. 三角形のインデックスバッファを作成
     // インデックス配列
     uint16_t indices[] = {
-        0,1,2
+        0,1,2,
+        0,2,3
     };
     IndexBuffer triangleIB;
     triangleIB.Init(sizeof(indices), 2);
@@ -88,7 +90,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
         renderContext.SetIndexBuffer(triangleIB);
 
         // 6. ドローコール
-        renderContext.DrawIndexed(3);
+        renderContext.DrawIndexed(_countof(indices));
 
         /////////////////////////////////////////
         // 絵を描くコードを書くのはここまで！！！
