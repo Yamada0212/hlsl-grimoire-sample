@@ -1,6 +1,10 @@
-﻿#include "stdafx.h"
+﻿#define _USE_MATH_DEFINES
+#include <math.h>
+
+#include "stdafx.h"
 #include "system/system.h"
 #include "TrianglePolygon.h"
+
 
 //関数宣言
 void InitRootSignature(RootSignature& rs);
@@ -54,11 +58,15 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
         renderContext.SetRootSignature(rootSignature);
 
         // step-3 ワールド行列を作成
-        Matrix  mWorld;
-        mWorld.MakeTranslation(((s++)%1000)/1000.0f, 0.4f, 0.0f);
+        float m = ((s++) % 100) / 100.0f;
+        Matrix  mWorld0,mWorld1;
+        //mWorld0.MakeTranslation(sin(m*2.0f*3.1415f), 0, 0);
+        //mWorld1.MakeScaling(Vector3(1.0f, sin(m * 5.0f * 3.1415f), 1));
+        mWorld1.MakeRotationZ(m/*sin(m * 5.0f * 3.1415f)*/);
+        mWorld0.Multiply(mWorld0, mWorld1);
 
         // step-4 ワールド行列をグラフィックメモリにコピー
-        cb.CopyToVRAM(mWorld);
+        cb.CopyToVRAM(mWorld0);
 
         // step-5 ディスクリプタヒープを設定
         renderContext.SetDescriptorHeap(ds);
