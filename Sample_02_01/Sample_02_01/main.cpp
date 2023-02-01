@@ -37,11 +37,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
     InitPipelineState(pipelineState, rootSignature, vs, ps);
 
     // 4. 三角形の頂点バッファを作成
-    // 頂点配列を定義
+    // 頂点配列を定義    
     SimpleVertex vertices[] = {
-        { -0.5f, -0.5f, 0.0f },
-        { 0.0f, 0.5f, 0.0f },
-        { 0.5f, -0.5f, 0.0f },
+        { -0.0f, -0.5f, 0.0f },
+        { 0.07f, -0.5f, 0.0f },
+        { 0.07f, -0.9f, 0.0f },
         { 0.0f, -0.9f, 0.0f },
     };
 
